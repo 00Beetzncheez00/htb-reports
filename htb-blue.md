@@ -75,11 +75,31 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments X - X)
 
+**Attachment 7**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-9.png)
+
+**Attachment 8**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-10.png)
+
+**Attachment 9**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-11.png)
+
+**Attachment 10**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-12.png)
+
+**Attachment 11**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-13.png)
+
 **NOTE:** At this point I would be running more enumeration activities on the system such as taking a deeper dive into the system in an attempt to gather more information. See what's on it. See what it's connected to. See what's running on it. Here are a couple of sites that can help.
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-//Add Attachments Here For Step #7
+
 
 # After Thoughts
 Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
