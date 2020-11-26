@@ -113,7 +113,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-16.png)
 
-9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or perform PTH operations on it. As shown below (Attachmentx 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
+9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or perform PTH operations on it. As shown below (Attachments 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
 
 **Attachment 15**
 
@@ -130,6 +130,20 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 **Attachment 18**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-20.png)
+
+10. Finally since this is a Hack The Box target the flags must be captured and the trophy gained. Again this target is a retired machine, yes you can get the flags via other write-ups ou there (google them). That's not the goal of these write-ups. It's more to show a methodology along with giving just enough that the work was done.
+
+**User Flag**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-21.png)
+
+**Root/Admin/System Flag**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-22.png)
+
+**Trophy**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-23.png)
 
 
 # After Thoughts
