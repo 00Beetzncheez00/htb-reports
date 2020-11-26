@@ -73,7 +73,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-8.png)
 
-7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments X - X)
+7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
 
 **Attachment 7**
 
