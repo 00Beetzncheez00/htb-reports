@@ -34,8 +34,8 @@ The [**Confidentiality, Integrity, and Availability**](https://en.wikipedia.org/
 And finally, any afterthoughts on the target, what can possibly be done to secure the system.
 
 # Document Details
-- Mitre TTP(s) Enterprise Used: TA0001, TA0002, TA0004, TA0007, TA0009 
-- PTES Identifiers Used: 1, 2, 4, 5, 7
+- Mitre TTP(s) Enterprise Used: TA0001, TA0002, TA0004, TA0007, TA0009, TA0010
+- PTES Identifiers Used: 1, 2, 4, 5, 6, 7
 - CIA Rating: 1, 2
 
 1. The first thing that is noticed the target is running a Windows OS (Attachment 1). This is gathered from the HTB information listed from the control panel. Also the IP address of the target is listed in the HTB control panel (Attachment 2).
@@ -47,7 +47,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-4.png)
 
-2. Initial port scans show a number of Microsoft RPC, Netbios, and DS related TCP ports (Attachment 3). UDP ports look to be all filtered so there isn't anything there of interest at this time (Attachment3).
+2. Initial port scans show a number of Microsoft RPC, Netbios, and DS related TCP ports (Attachment 3). UDP ports look to be all filtered so there isn't anything there of interest at this time (Attachment 3).
 
 - **Attachment 3**
 
@@ -73,7 +73,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-8.png)
 
-7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
+7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11) 
 
 **Attachment 7**
 
@@ -99,6 +99,19 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
+8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments X - X). These can be used for later items on the system. As you can imagine now that the hases are taken the sky is the limit when it comes to doing what we want with the target.
+
+**Attachment 12**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-14.png)
+
+**Attachment 13**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-15.png)
+
+**Attachment 14**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-16.png)
 
 
 # After Thoughts
