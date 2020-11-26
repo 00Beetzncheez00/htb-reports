@@ -99,7 +99,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments X - X). These can be used for later items on the system. As you can imagine now that the hases are taken the sky is the limit when it comes to doing what we want with the target.
+8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hases are taken the sky is the limit when it comes to doing what we want with the target.
 
 **Attachment 12**
 
@@ -112,6 +112,24 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 **Attachment 14**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-16.png)
+
+9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or perform PTH operations on it. As shown below (Attachmentx 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
+
+**Attachment 15**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-17.png)
+
+**Attachment 16**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-18.png)
+
+**Attachment 17**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-19.png)
+
+**Attachment 18**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/blue-20.png)
 
 
 # After Thoughts
