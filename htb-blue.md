@@ -1,5 +1,5 @@
 # Hack The Box Target Report #1 (Blue)
-For this write-up report we will be going thru the vlunerable maching from Hack The Box named Blue. The rating matrix for this target is in range of Enumeration, Real-Life, and CVE ratings. 
+For this write-up report we will be going thru the vulnerable machine from Hack The Box named Blue. The rating matrix for this target is in range of Enumeration, Real-Life, and CVE ratings.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
 | ![](https://github.com/00Beetzncheez00/images/blob/main/blue-1.png)  | ![](https://github.com/00Beetzncheez00/images/blob/main/blue-2.png) |
@@ -60,7 +60,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-6.png)
 
-5. At this point let's try and run the exploit against the target. Reason behind this is you might as well see if it works during an engagement because either way it will have to go into the report. Successfull or not. (Attachment 5)
+5. At this point let's try to run the exploit against the target. Reason behind this is you might as well see if it works during an engagement because either way it will have to go into the report. successful or not. (Attachment 5)
 
 - **Attachment 5**
 
@@ -73,7 +73,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-8.png)
 
-7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11) 
+7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
 
 **Attachment 7**
 
@@ -95,11 +95,11 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-13.png)
 
-**NOTE:** At this point I would be running more enumeration activities on the system such as taking a deeper dive into the system in an attempt to gather more information. See what's on it. See what it's connected to. See what's running on it. Here are a couple of sites that can help.
+**NOTE:** At this point I would be running more enumeration activities on the system such as taking a deeper dive into the system in trying to gather more information. See what's on it. See what it's connected to. See what's running on it. Here are a couple of sites that can help.
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hases are taken the sky is the limit when it comes to doing what we want with the target.
+8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hashes are taken the sky is the limit when it comes to doing what we want with the target.
 
 **Attachment 12**
 
@@ -113,7 +113,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-16.png)
 
-9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or perform PTH operations on it. As shown below (Attachments 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
+9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or do PTH operations on it. As shown below (Attachments 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
 
 **Attachment 15**
 
@@ -145,6 +145,6 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-23.png)
 
-
 # After Thoughts
-Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
+All in all this was a fun first box to play with. It has a good amount of "real life" aspect to it with the Eternal Blue vulnerable targets. I hope this write-up has given a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with cyber kill chain, and finally how the CIA triad ratings can apply. Without going into specific products the easiest way to keep this from happening is to keep up to date on your system patching cycles. Keep your systems up to date. And be on the lookout for new exploits that comes out. That way you can assess the risk you may face.
+
