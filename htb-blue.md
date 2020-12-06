@@ -7,7 +7,7 @@ For this write-up report we will be going thru the vulnerable machine from Hack 
 # Legal Things
 - The following write-up, document, whatever you won't call it is for educational purposes **ONLY!!!**
 - Do not perform any tasks in these write-ups on systems that you **DO NOT own!!!**
-- If you need an environment to practice look up the plethora of sites out there (Hack The Box, Vulnhub, OSCP Labs, etc...)
+- If you need an environment to practice, look up the plethora of sites out there (Hack The Box, Vulnhub, OSCP Labs, etc...)
 
 # Rules Of Engagement
 - Do not perform any DOS (Denial Of Service) based attacks against the target.
@@ -15,7 +15,7 @@ For this write-up report we will be going thru the vulnerable machine from Hack 
 - No Zero-Days are to be run on the target.
 
 # Document Overview
-Targets in this document will be engaged via the following methodologies. This target is one of the "Retired" targets from Hack The Box, however, I won't be posting the **USER** and **ROOT** hashes because those can be foung doing your own research. This document is simple a demonstration of working a methodology.
+In this document I'll be utilizing the following methodologies. This target is one of the "Retired" targets from Hack The Box, however, I won't be posting the **USER** and **ROOT** hashes because those can be found doing your own research. This is simple a demonstration of working with these methodologies while practicing on a vulnerable target. The goal is approach this as if a final report is being given to a client.
 
 The **Mitre Attack Framework** ([**Enterprise**](https://attack.mitre.org/tactics/enterprise/) & [**Mobile**](https://attack.mitre.org/tactics/mobile/)) to detail out which TTP's are used against that target.
 
@@ -31,14 +31,14 @@ The [**Confidentiality, Integrity, and Availability**](https://en.wikipedia.org/
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/cia-triad-logo.png)
 
-And finally, any afterthoughts on the target, what can possibly be done to secure the system.
+And finally, any afterthoughts on the target, what can possibly be done to secure the system thru recommendations.
 
 # Document Details
 - Mitre TTP(s) Enterprise Used: TA0001, TA0002, TA0004, TA0007, TA0009, TA0010
 - PTES Identifiers Used: 1, 2, 4, 5, 6, 7
 - CIA Rating: 1, 2
 
-1. The first thing that is noticed the target is running a Windows OS (Attachment 1). This is gathered from the HTB information listed from the control panel. Also the IP address of the target is listed in the HTB control panel (Attachment 2).
+1. The target is running a Windows Operating System (Attachment 1). This was gathered from the HTB information listed from the control panel. Also the IP address of the target is listed in the HTB control panel (Attachment 2).
 - **Attachment 1**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-3.png)
@@ -47,104 +47,106 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-4.png)
 
-2. Initial port scans show a number of Microsoft RPC, Netbios, and DS related TCP ports (Attachment 3). UDP ports look to be all filtered so there isn't anything there of interest at this time (Attachment 3).
+2. Initial enumeration shows a number of Microsoft RPC, Netbios, and DS related TCP ports (Attachment 3). UDP ports look to be all filtered so there isn't anything there of interest at this time (Attachment 3).
 
 - **Attachment 3**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-5.png)
 
-3. At this point since we know the target OS is Windows (Version is not known yet though) and we see that Netbios, SMB, and RPC ports are open how about we default to trying to see if we can run iterations of MS17-010 checks and exploits on it.
-4. The MSF module exploit/smb/ms17_010_psexec has a check feature that can possibly further detect the Windows OS version along with seeing if the target is vulnerable. (Attachment 4)
+3. The MSF module **exploit/smb/ms17_010_psexec** has a check feature that can be used to further detect the Windows OS version along with seeing if the target is vulnerable. (Attachment 4)
 
 - **Attachment 4**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-6.png)
 
-5. At this point let's try to run the exploit against the target. Reason behind this is you might as well see if it works during an engagement because either way it will have to go into the report. successful or not. (Attachment 5)
+**NOTE:** At this point I would establish contact with the client to inform them that I would be beginning my exploit attempts on the target systems if this was a white or gray box type of engagement.
+
+4. Let's try to run the exploit against the target. Reason behind this is you might as well see if it works during an engagement because either way it will have to go into the report. Successful or not. (Attachment 5)
 
 - **Attachment 5**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-7.png)
 
-6. The exploit in Attachment 5 did not work because we didn't have a username, password, or password hash to work with. However not is lost because we go a piece of information from the target. The OS version and service pack. This can aid in further enumeration and exploitation.
+5. The exploit in Attachment 5 did not work because we didn't have a username, password, or hash to work with. However not all is lost because we got a piece of information from the target. The OS version and service pack. This can aid in further enumeration and exploitation.
 7. Since the target is running Windows 7 SP1 64-bit. Let's try the Eternal Blue exploit on the target and see if we can gain access. (Attachment 6)
 
-**Attachment 6**
+- **Attachment 6**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-8.png)
 
-7. Nice. Now we have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
+6. We have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
 
-**Attachment 7**
+**NOTE:** As stated above. Depending on the type of engagement (White or Gray Box) type. I would establish contact, again, with the client notifying them that I have gained a foothold on the target and see if they would like me to proceed further. If approval is given then only then can you proceed.
+
+- **Attachment 7**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-9.png)
 
-**Attachment 8**
+- **Attachment 8**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-10.png)
 
-**Attachment 9**
+- **Attachment 9**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-11.png)
 
-**Attachment 10**
+- **Attachment 10**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-12.png)
 
-**Attachment 11**
+- **Attachment 11**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-13.png)
 
-**NOTE:** At this point I would be running more enumeration activities on the system such as taking a deeper dive into the system in trying to gather more information. See what's on it. See what it's connected to. See what's running on it. Here are a couple of sites that can help.
+**NOTE:** At this point I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what's on it. See what it's connected to. See what services are running. Here are a couple of sites that can help.
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-8. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hashes are taken the sky is the limit when it comes to doing what we want with the target.
+7. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hashes are taken the sky is the limit when it comes to doing what we want with the target.
 
-**Attachment 12**
+- **Attachment 12**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-14.png)
 
-**Attachment 13**
+- **Attachment 13**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-15.png)
 
-**Attachment 14**
+- **Attachment 14**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-16.png)
 
-9. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or do PTH operations on it. As shown below (Attachments 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
+8. Since mimikatz worked on dumping the user hashes you can attempt to either crack them. Or do PTH operations on it. As shown below (Attachments 15 - 18) psexec can work now. And if you don't want to use MSF for any of the work there are other options.
 
-**Attachment 15**
+- **Attachment 15**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-17.png)
 
-**Attachment 16**
+- **Attachment 16**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-18.png)
 
-**Attachment 17**
+- **Attachment 17**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-19.png)
 
-**Attachment 18**
+- **Attachment 18**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-20.png)
 
-10. Finally since this is a Hack The Box target the flags must be captured and the trophy gained. Again this target is a retired machine, yes you can get the flags via other write-ups ou there (google them). That's not the goal of these write-ups. It's more to show a methodology along with giving just enough that the work was done.
+9. Finally since this is a Hack The Box target the flags must be captured and the trophy gained. Again this target is a retired machine, yes you can get the flags via other write-ups ou there (google them). That's not the goal of these write-ups. It's more to show a methodology along with giving just enough that the work was done.
 
-**User Flag**
+- **User Flag**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-21.png)
 
-**Root/Admin/System Flag**
+- **Root/Admin/System Flag**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-22.png)
 
-**Trophy**
+- **Trophy**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-23.png)
 
 # After Thoughts
 All in all this was a fun first box to play with. It has a good amount of "real life" aspect to it with the Eternal Blue vulnerable targets. I hope this write-up has given a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with cyber kill chain, and finally how the CIA triad ratings can apply. Without going into specific products the easiest way to keep this from happening is to keep up to date on your system patching cycles. Keep your systems up to date. And be on the lookout for new exploits that comes out. That way you can assess the risk you may face.
-
