@@ -45,3 +45,8 @@ Insert what was done to the target in all aspects of the identified MITRE TTPs, 
 # After Thoughts
 Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
 
+# Recommendations
+- Keep the system up to date on operating system and application patches.
+- Implement complex password usage with the requirement to change the passwords on a regular basis.
+- Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
+
