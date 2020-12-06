@@ -76,7 +76,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 6. We have access to the target system. Let's see if we can get a meterpreter session out of this. And if so migrate the to a more stable process (say lsass), and pull some usernames and password hashes for later use. (Attachments 7 - 11)
 
-**NOTE:** As stated above. Depending on the type of engagement (White or Gray Box) type. I would establish contact, again, with the client notifying them that I have gained a foothold on the target and see if they would like me to proceed further. If approval is given then only then can you proceed.
+**NOTE:** As stated above. Depending on the type of engagement (White or Gray Box) type. I would establish contact, again, with the client notifying them that I have gained a foothold on the target and see if they would like me to proceed further.
 
 - **Attachment 7**
 
@@ -103,6 +103,8 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
 7. Now that we have SYSTEM / Admin access to the system let's proceed to dump the password hashes of the users on the system (Attachments 12 - 14). These can be used for later items on the system. As you can imagine now that the hashes are taken the sky is the limit when it comes to doing what we want with the target.
+
+**NOTE:** Once SYSTEM / Admin access has been had to the target the client would be then notified of what needs to be done to plug the security hole. Then the client will have to determine if the system needs to be patched immediately based on business risk.
 
 - **Attachment 12**
 
@@ -134,7 +136,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-20.png)
 
-9. Finally since this is a Hack The Box target the flags must be captured and the trophy gained. Again this target is a retired machine, yes you can get the flags via other write-ups ou there (google them). That's not the goal of these write-ups. It's more to show a methodology along with giving just enough that the work was done.
+9. Finally since this is a Hack The Box target the flags must be captured and the trophy gained. Again this target is a retired machine, yes you can get the flags via other write-ups out there (Google them).
 
 - **User Flag**
 
@@ -149,4 +151,9 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 ![](https://github.com/00Beetzncheez00/images/blob/main/blue-23.png)
 
 # After Thoughts
-All in all this was a fun first box to play with. It has a good amount of "real life" aspect to it with the Eternal Blue vulnerable targets. I hope this write-up has given a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with cyber kill chain, and finally how the CIA triad ratings can apply. Without going into specific products the easiest way to keep this from happening is to keep up to date on your system patching cycles. Keep your systems up to date. And be on the lookout for new exploits that comes out. That way you can assess the risk you may face.
+All in all this was a fun first box to play with. It has a good amount of "real life" aspect to it with the Eternal Blue vulnerable targets. I hope this write-up has given a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with cyber kill chain, and finally how the CIA triad ratings can apply.
+
+# Recommendations
+- Keep the system up to date on operating system and application patches.
+- Implement complex password usage with the requirement to change the passwords on a regular basis.
+- Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
