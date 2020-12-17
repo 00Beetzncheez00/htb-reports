@@ -1,7 +1,7 @@
 # Hack The Box Target Report #2 (Arctic)
 Quick description of what this document is.
 
-For this write-up report we will be going thru the vulnerable machine from Hack The Box named Blue. The rating matrix for this target is in range of Enumeration, Real-Life, and CVE ratings.
+For this write-up report we will be going thru the vulnerable machine from Hack The Box named Arctic. The rating matrix for this target is in range of Enumeration, Real-Life, CVE ratings, and a teeny bit of Custom Exploitation.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
 | ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-1.png)  | ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-2.png) |
@@ -36,9 +36,9 @@ The [**Confidentiality, Integrity, and Availability**](https://en.wikipedia.org/
 And finally, any afterthoughts on the target, what can possibly be done to secure the system.
 
 # Document Details
-- Mitre TTP(s) Used: TA0009, TA0007, TA0002
-- PTES Identifiers Used: 1, 2, 4, 5, 7
-- CIA Rating: 1, 3
+- Mitre TTP(s) Used: TA0001, TA0002, TA0004, TA0007, TA0009, TA0010
+- PTES Identifiers Used: 1, 2, 3, 4, 5, 7
+- CIA Rating: 1, 2, 3
 
 Insert what was done to the target in all aspects of the identified MITRE TTPs, PTES classifications, and how the CIA rating was obtained. Include any and all steps with objective evidence (log output, screenshots, etc...)
 
