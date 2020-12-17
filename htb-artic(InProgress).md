@@ -40,7 +40,25 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - PTES Identifiers Used: 1, 2, 3, 4, 5, 7
 - CIA Rating: 1, 2, 3
 
-Insert what was done to the target in all aspects of the identified MITRE TTPs, PTES classifications, and how the CIA rating was obtained. Include any and all steps with objective evidence (log output, screenshots, etc...)
+1. The target is running a Windows Operating System (Attachment 1). This was gathered from the HTB information listed from the control panel. Also the IP address of the target is listed in the HTB control panel (Attachment 2). Remember enumeration (Passive or Active) can come from all sources related to your target. 
+- **Attachment 1**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-3.png)
+
+- **Attachment 2**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-4.png)
+
+2. Initial enumeration (Command Used: nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you what all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positive's and negative's. It is a good idea to have multiple ways to verify the information you are getting.
+
+- **Attachment 3**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-5.png)
+
+- **Attachment 4**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-6.png)
+
 
 # After Thoughts
 Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
