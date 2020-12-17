@@ -49,7 +49,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-4.png)
 
-2. Initial enumeration (Command Used: nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you what all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positive's and negative's. It is a good idea to have multiple ways to verify the information you are getting.
+2. Initial enumeration (**Command Used:** nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you what all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positive's and negative's. It is a good idea to have multiple ways to verify the information you are getting.
 
 - **Attachment 3**
 
@@ -59,11 +59,23 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-6.png)
 
+3. Let's narrow down on the ColdFusion software on this target. Doing a simple web browser to the page shows there are two folders being indexed (Attachment 5). If we go into the CFIDE folder we are presented with the Coldfusion login page (Attachment 6). Also shown is the version number (Version 8). This can be used to lookup any vulnerabilities or exploits.
+
+- **Attachment 5**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-7.png)
+
+- **Attachment 6**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-8.png)
+
+
 
 # After Thoughts
 Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
 
 # Recommendations
+- Disable web server indexing in all locations.
 - Keep the system up to date on operating system and application patches.
 - Implement complex password usage with the requirement to change the passwords on a regular basis.
 - Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
