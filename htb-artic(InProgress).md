@@ -1,10 +1,10 @@
-# Something Something Template (Use This Section To Describe What This Document Is For)
+# Hack The Box Target Report #2 (Arctic)
 Quick description of what this document is.
 
-As an example: (**Note:** Feel free to change any of this)
-**Legal things** will describe things that need to be said in attempts to keep law enforcement away and anyone's lawyers at bay, or happy, depending on how you look at it.
-**Document overview** explains at a high level what is going on with what you will be reading.
-**Document details** is the section that you use to, well, explain in various amounts of details (your choice of course) what the heck you are doing.
+For this write-up report we will be going thru the vulnerable machine from Hack The Box named Blue. The rating matrix for this target is in range of Enumeration, Real-Life, and CVE ratings.
+| Target Name    | Rating Matrix        |
+| ------------- |:-------------:|
+| ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-1.png)  | ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-2.png) |
 
 # Legal Things
 - The following write-up, document, whatever you won't call it is for educational purposes **ONLY!!!**
