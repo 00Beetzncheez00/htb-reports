@@ -69,14 +69,33 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-8.png)
 
+4. Doing some research on Adobe's Coldfusion software yields quite a few vulnerabilities (https://www.cvedetails.com/vulnerability-list/vendor_id-53/product_id-8739/Adobe-Coldfusion.html). This can be one reason to recommend a client not to utilize this application. Specifically for this target the CVE that will be utilized is **CVE-2010-2861** (https://www.cvedetails.com/cve/CVE-2010-2861/).
+
+5. The next item to be done is to take advantage of the LFI/RFI directory traversal vulnerability (Attachment 7).
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-9.png)
+
+6. Attachments 7 - 8 demonstrate the exposure of the admin hash credentials from the web interface and source code. Attachments 9 - 11 demonstrate the cracking of the admin hash, successful login to the Coldusion Application, and the current version with what updates have been installed.
+
+- **Attachment 7**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-10.png)
+
+- **Attachment 8**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-11.png)
+
+- **Attachment 9**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-12.png)
+
+- **Attachment 10**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-13.png)
+
+- **Attachment 11**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-14.png)
 
 
-# After Thoughts
-Afterthoughts need to include recommendations on what is needed to secure the target along with any personal touches added to the document. Personal opinions on the steps taken, difficulty, etc...
-
-# Recommendations
-- Disable web server indexing in all locations.
-- Keep the system up to date on operating system and application patches.
-- Implement complex password usage with the requirement to change the passwords on a regular basis.
-- Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
-
+**TO BE CONTINUED**
