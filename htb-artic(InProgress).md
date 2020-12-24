@@ -1,7 +1,7 @@
 # Hack The Box Target Report #2 (Arctic)
 Quick description of what this document is.
 
-For this write-up report we will be going thru the vulnerable machine from Hack The Box named Arctic. The rating matrix for this target is in range of Enumeration, Real-Life, CVE ratings, and a teeny bit of Custom Exploitation.
+For this write-up report, we will be going thru the vulnerable machine from Hack The Box named Arctic. The rating matrix for this target is in the range of Enumeration, Real-Life, CVE ratings, and a teeny bit of Custom Exploitation.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
 | ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-1.png)  | ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-2.png) |
@@ -40,7 +40,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - PTES Identifiers Used: 1, 2, 3, 4, 5, 7
 - CIA Rating: 1, 2, 3
 
-1. The target is running a Windows Operating System (Attachment 1). This was gathered from the HTB information listed from the control panel. Also the IP address of the target is listed in the HTB control panel (Attachment 2). Remember enumeration (Passive or Active) can come from all sources for your target. 
+1. The target is running a Windows Operating System (Attachment 1). This was gathered from the HTB information listed from the control panel. Also, the IP address of the target is listed in the HTB control panel (Attachment 2). Remember enumeration (Passive or Active) can come from all sources for your target.
 - **Attachment 1**
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-3.png)
@@ -49,7 +49,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-4.png)
 
-2. Initial enumeration (**Command Used:** nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you what all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positive's and negative's. It is a good idea to have multiple ways to verify the information you are getting.
+2. Initial enumeration (**Command Used:** nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positives and negatives. It is a good idea to have multiple ways to verify the information you are getting.
 
 - **Attachment 3**
 
@@ -77,7 +77,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-9.png)
 
-6. Attachments 7 - 8 demonstrate the exposure of the admin hash credentials from the web interface and source code. Attachments 9 - 11 demonstrate the cracking of the admin hash, successful login to the Coldusion Application, and the current version with what updates have been installed.
+6. Attachments 7 - 8 demonstrate the exposure of the admin hash credentials from the web interface and source code. Attachments 9 - 11 demonstrate the cracking of the admin hash, successful login to the ColdFusion Application, and the current version with what updates have been installed.
 
 - **Attachment 7**
 
@@ -99,6 +99,57 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-14.png)
 
-**NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained access to the application with administrative level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise it will be the clients call on how to proceed. For the sake of this write-up we will be proceeding.
+**NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained access to the application with administrative level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
+
+7. At this time during an engagement I would try to gain a foothold on the target. Since we have administrative access to the ColdFusion application I would do some research on how this could be done. Through thru enumeration of the application, we know that it is Java-based (Attachment 11). Since time is usually of the essence on an engagement let's try a quick way to obtain a reverse shell from the application.
+
+8. This version of ColdFusion has a task scheduler. I wonder if we can generate a payload file that connects back to the attacking machine, have ColdFusion pull the file, and have the webserver execute the payload thus making our connection? Let's give it a whirl, shall we?
+
+9. Using Msfvenom a payload file can be created (Attachment 12). This is creating a generic java payload that when viewed/executed will connect back to the attacking computer and hopefully give me a shell to work with.
+
+- **Attachment 12**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-15.png)
+
+10. ColdFusion needs a way to pull the payload when the scheduled task is running. This can be done simply by running the Python SimpleHTTP server. (Attachment 13) There are other easier ways along with running in a C&C environment. But for simplicity's sake, I'm sticking to the basics.
+ 
+- **Attachment 13**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-16.png)
+
+11. Time to set up a scheduled task to run in ColdFusion to pull the generated payload file. (Attachments 14 & 15)
+
+- **Attachment 14**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-17.png)
+
+- **Attachment 15**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-18.png)
+
+11. Run the Coldfusion scheduled task (Attachment 16), make sure it pulled from the attacking webserver (Attachment 17), and show that it's on the target (Attachment 18).
+
+- **Attachment 16**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-19.png)
+
+- **Attachment 17**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-20.png)
+
+- **Attachment 18**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-21.png)
+
+12. Start a generic netcat listener for when the reverse shell call home (Attachment 19), navigate to the .jsp page with a web browser (Attachment 18), and voila a reverse shell (Attachment 20).
+
+- **Attachment 19**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-22.png)
+
+- **Attachment 20**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-23.png)
+
 
 **TO BE CONTINUED**
