@@ -151,5 +151,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-23.png)
 
+**NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained a foothold on the server that the Coldfusion appliction resides on with what looks to be like USER level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
+
 
 **TO BE CONTINUED**
