@@ -153,9 +153,29 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 **NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained a foothold on the server that the Coldfusion appliction resides on with what looks to be like USER level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
 
-**NOTE:** At this point I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what's on it. See what it's connected to. See what services are running. Here are a couple of sites that can help.
+**NOTE:** At this point I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what's on it. See what it's connected to. See what services are running. Here are a couple of sites that can help. With this information, I can make further recommendations on what needs to be done on the target.
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
 
-**TO BE CONTINUED**
+13. Looking around the system via port 135 that was shown to be open (Attachment 3) a couple if tools (ifmap & rpcdump) were run to see what is possibly exposed. (Attachments 21-24)
+
+- **Attachment 21**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-24.png)
+
+- **Attachment 22**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-25.png)
+
+- **Attachment 23**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-26.png)
+
+- **Attachment 24**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-27.png)
+
+
+
+
