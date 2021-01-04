@@ -215,6 +215,10 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-36.png)
 
+- **Trophy**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-37.png)
+
 # After Thoughts
 Another fun box to play with. It has a good amount of "real life" aspect to it with being it is running an old application along with system patches not up to date making it a vulnerable target. I hope this write-up has given anyone reading a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with the cyber kill chain, and finally how the CIA triad ratings can apply to targets in a simulated engagement.
 
