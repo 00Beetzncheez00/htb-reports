@@ -49,7 +49,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-4.png)
 
-2. Initial enumeration (**Command Used:** nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the Coldfusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positives and negatives. It is a good idea to have multiple ways to verify the information you are getting.
+2. Initial enumeration (**Command Used:** nmap -T4 -sV -sC -O -A -n -vv -Pn -p- 10.10.10.11 -d --reason) shows 3 ports open **(135, 8500, 40154)**. If you know your port numbers you will know right away that port 135 is Microsoft's COM/DCOM/RPC Endpoint mapper port. A simple google search can show you all information and exploitation you can get from this port. It also looks like the high number port 49154 has been identified also as an RPC port (Attachment 3). Despite nmap displaying the service as "fmtp?" a quick search shows that is the port used by the ColdFusion Web Server software (Attachment 4). It is important to note that your scanning tools will give you false positives and negatives. It is a good idea to have multiple ways to verify the information you are getting.
 
 - **Attachment 3**
 
@@ -59,9 +59,9 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-6.png)
 
-3. Let's narrow down on the ColdFusion software on this target. Doing a simple web browser to the page shows there are two folders being indexed (Attachment 5). If we go into the CFIDE folder we are presented with the Coldfusion login page (Attachment 6). Also shown is the version number (Version 8). This can be used to lookup any vulnerabilities or exploits.
+3. Let's narrow down the ColdFusion software on this target. Doing a simple web browser to the page shows there are two folders being indexed (Attachment 5). If we go into the CFIDE folder we are presented with the ColdFusion login page (Attachment 6). Also shown is the version number (Version 8). This can be used to lookup any vulnerabilities or exploits.
 
-**NOTE:** At this point I would establish contact with the client to inform them that I would be beginning my exploit attempts on the target system(s) if this was a white or gray box engagement.
+**NOTE:** At this point I would establish contact with the client to tell them that I would be beginning my exploit attempts on the target system(s) if this was a white or gray box engagement.
 
 - **Attachment 5**
 
@@ -71,13 +71,13 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-8.png)
 
-4. Doing some research on Adobe's Coldfusion software yields quite a few vulnerabilities (https://www.cvedetails.com/vulnerability-list/vendor_id-53/product_id-8739/Adobe-Coldfusion.html). This can be one reason to recommend a client not to utilize this application. Specifically for this target the CVE that will be utilized is **CVE-2010-2861** (https://www.cvedetails.com/cve/CVE-2010-2861/).
+4. Doing some research on Adobe's ColdFusion software yields a few vulnerabilities (https://www.cvedetails.com/vulnerability-list/vendor_id-53/product_id-8739/Adobe-Coldfusion.html). This can be one reason to recommend a client not to use this application. Specifically for this target the CVE that will be utilized is **CVE-2010-2861** (https://www.cvedetails.com/cve/CVE-2010-2861/).
 
 5. The next item to be done is to take advantage of the LFI/RFI directory traversal vulnerability (Attachment 7).
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-9.png)
 
-6. Attachments 7 - 8 demonstrate the exposure of the admin hash credentials from the web interface and source code. Attachments 9 - 11 demonstrate the cracking of the admin hash, successful login to the ColdFusion Application, and the current version with what updates have been installed.
+6. Attachments 7 - 8 prove the exposure of the admin hash credentials from the web interface and source code. Attachments 9 - 11 prove the cracking of the admin hash, successful login to the ColdFusion Application, and the current version with what updates have been installed.
 
 - **Attachment 7**
 
@@ -99,7 +99,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-14.png)
 
-**NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained access to the application with administrative level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
+**NOTE:** At this point the engagement would pause and I would establish contact with the client to tell them that have gained access to the application with administrative level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
 
 7. At this time during an engagement I would try to gain a foothold on the target. Since we have administrative access to the ColdFusion application I would do some research on how this could be done. Through thru enumeration of the application, we know that it is Java-based (Attachment 11). Since time is usually of the essence on an engagement let's try a quick way to obtain a reverse shell from the application.
 
@@ -127,7 +127,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-18.png)
 
-11. Run the Coldfusion scheduled task (Attachment 16), make sure it pulled from the attacking webserver (Attachment 17), and show that it's on the target (Attachment 18).
+11. Run the ColdFusion scheduled task (Attachment 16), make sure it pulled from the attacking webserver (Attachment 17), and show that it's on the target (Attachment 18).
 
 - **Attachment 16**
 
@@ -141,7 +141,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-21.png)
 
-12. Start a generic netcat listener for when the reverse shell call home (Attachment 19), navigate to the .jsp page with a web browser (Attachment 18), and voila a reverse shell (Attachment 20).
+12. Start a generic Netcat listener for when the reverse shell call home (Attachment 19), navigate to the .jsp page with a web browser (Attachment 18), and voilà a reverse shell (Attachment 20).
 
 - **Attachment 19**
 
@@ -151,14 +151,13 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-23.png)
 
-**NOTE:** At this point the engagement would pause and I would establish contact with the client to inform them that have gained a foothold on the server that the Coldfusion appliction resides on with what looks to be like USER level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
+**NOTE:** At this point the engagement would pause and I would establish contact with the client to tell them that I have gained a foothold on the server that the ColdFusion application resides on with what looks to be like USER level credentials. If the system is in production and the severity is great enough a request to update/patch/or offline the system would be made. Otherwise, it will be the client's call on how to proceed. For the sake of this write-up, we will be proceeding.
 
-**NOTE:** At this point I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what's on it. See what it's connected to. See what services are running. Here are a couple of sites that can help. With this information, I can make further recommendations on what needs to be done on the target.
+**NOTE:** At this point of the engagement, I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what is on it. See what it is connected to. See what services are running. Here are a couple of sites that can help. With this information, I can make further recommendations on what needs to be done on the target.
 - https://www.fuzzysecurity.com/tutorials/16.html
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-
-13. Looking around the system via port 135 that was shown to be open (Attachment 3) a couple if tools (ifmap & rpcdump) were run to see what is possibly exposed. (Attachments 21-24)
+13. Looking around the system via port 135 that was shown to be open (Attachment 3) a couple if tools (ifmap & rpcdump) were run to see what is possibly exposed.
 
 - **Attachment 21**
 
@@ -176,6 +175,53 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/arctic-27.png)
 
+14. After running windows exploit suggester on the target it reveals a few patches missing (Attachment 25). It is important to note that this target enumeration was done via the low-priv user. This was done by pulling the SYSTEMINFO details from the target, outputting it to a text file, and using that data with the exploit suggestion program.
 
+- **Attachment 25**
 
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-28.png)
 
+15. ADMIN or SYSTEM rights were obtained on the target via a number of steps. 1st the aforementioned steps to gain the foothold via the ColdFusion application were executed. 2nd, using the Metasploit Console (msfconsole) foothold session was upgraded to a meterpreter session via the /multi/script/web_delivery module, and 3rd utilizing the ms10_092 exploit to elevate rights to NT AUTHORITY\SYSTEM (Attachments 26 - 33)
+
+- **Attachment 26**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-29.png)
+
+- **Attachment 27**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-30.png)
+
+- **Attachment 28**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-31.png)
+
+- **Attachment 29**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-32.png)
+
+- **Attachment 30**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-33.png)
+
+- **Attachment 31**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-34.png)
+
+- **Attachment 32**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-35.png)
+
+- **Attachment 33**
+
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-36.png)
+
+# After Thoughts
+Another fun box to play with. It has a good amount of "real life" aspect to it with being it is running an old application along with system patches not up to date making it a vulnerable target. I hope this write-up has given anyone reading a clear understanding of how the PTES standard applies, how the MITRE Attack TTPs work along with the cyber kill chain, and finally how the CIA triad ratings can apply to targets in a simulated engagement.
+
+# Recommendations
+- Disable web server indexing in all locations.
+- Close ports or disable services that are not needed.
+- Upgrade ColdFusion to the latest version if the system is still in production. Otherwise, decommission the system.
+- Keep the system up to date on operating system and application patches.
+- Implement complex password usage with the requirement to change the passwords on a regular basis.
+- Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
