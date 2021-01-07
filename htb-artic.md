@@ -1,4 +1,4 @@
-# Hack The Box Target Report #2 (Arctic)
+# Hack The Box Target Report (Arctic)
 Quick description of what this document is.
 
 For this write-up report, we will be going thru the vulnerable machine from Hack The Box named Arctic. The rating matrix for this target is in the range of Enumeration, Real-Life, CVE ratings, and a teeny bit of Custom Exploitation.
