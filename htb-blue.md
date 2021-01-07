@@ -1,4 +1,4 @@
-# Hack The Box Target Report #1 (Blue)
+# Hack The Box Target Report (Blue)
 For this write-up report we will be going thru the vulnerable machine from Hack The Box named Blue. The rating matrix for this target is in range of Enumeration, Real-Life, and CVE ratings.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
