@@ -85,7 +85,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 - **Attachment 8**
 
-![](https://github.com/00Beetzncheez00/images/blob/main/arctic-11.png)
+![](https://github.com/00Beetzncheez00/images/blob/main/arctic-11_1.png)
 
 - **Attachment 9**
 
