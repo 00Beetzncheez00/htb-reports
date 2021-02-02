@@ -1,4 +1,4 @@
-# Something Something Template (Use This Section To Describe What This Document Is For)
+# Hack The Box Target Report (Lame)
 For this write-up report, we will be going thru the vulnerable machine from Hack The Box named Lame. Funny name right? The rating matrix for this target is in the range of Enumeration, Real-Life, CVE ratings.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
