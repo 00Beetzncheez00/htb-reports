@@ -15,6 +15,17 @@ As an example: (**Note:** Feel free to change any of this)
 - Do not perform any DOS (Denial Of Service) based attacks against the target.
 - Only perform publicly available exploits in the target.
 - No Zero-Days are to be run on the target.
+- Client notification at each point when accessing a target. (Foothold, Exploitation, Root/SYSTEM access)
+- Client approval to continue upon access to a target is obrtained with instructions on how to proceed.
+
+# Executive Summary
+The in-scope target was found to be running older versions of the following that need to be patched and/or updated.
+
+# Issues Include The Following:
+- INSERT ISSUES
+
+# High Level Recommendations
+- INSERT HIGH LEVEL RECOMMENDATIONS
 
 # Document Overview
 Targets in this document will be engaged via the following methodologies.
