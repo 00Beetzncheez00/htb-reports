@@ -1,4 +1,4 @@
-# Hack The Box Target Report (Lame)
+# Something Something Template (Use This Section To Describe What This Document Is For)
 For this write-up report, we will be going thru the vulnerable machine from Hack The Box named Lame. Funny name right? The rating matrix for this target is in the range of Enumeration, Real-Life, CVE ratings.
 | Target Name    | Rating Matrix        |
 | ------------- |:-------------:|
@@ -15,6 +15,20 @@ For this write-up report, we will be going thru the vulnerable machine from Hack
 - No Zero-Days are to be run on the target.
 - Client notification at each point when accessing a target. (Foothold, Exploitation, Root/SYSTEM access)
 - Client approval to continue upon access to a target is obtained with instructions on how to proceed.
+
+# Executive Summary
+The in-scope target was found to be running older versions of the following that need to be patched and/or updated.
+
+# Issues Include The Following:
+- Out of date / End-Of-Life Linux Operating System.
+- Out of date FTP software.
+- Out of date Samba file-sharing services.
+
+# High-Level Recommendations
+- Keep the system up to date on operating system and application patches.
+- De-commission old systems and take them offline. Security thru obscurity isn't a thing!!!
+- Implement complex password usage with the requirement to change the passwords on a regular basis.
+- Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
 
 # Document Overview
 Targets in this document will be engaged via the following methodologies.
@@ -96,4 +110,5 @@ Another fun box to play with. It has a good amount of "real life" aspect to it a
 - De-commission old systems and take them offline. Security thru obscurity isn't a thing!!!
 - Implement complex password usage with the requirement to change the passwords on a regular basis.
 - Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
+
 
