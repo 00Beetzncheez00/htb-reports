@@ -40,6 +40,11 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 - PTES Identifiers Used: 1, 2, 4, 5, 7
 - CIA Rating: 1, 3
 
+| Open Ports    | Services        |
+| ------------- |:-------------:|
+| 22 | SSH |
+| 443 | HTTP-SSL |
+
 Insert what was done to the target in all aspects of the identified MITRE TTPs, PTES classifications, and how the CIA rating was obtained. Include any and all steps with objective evidence (log output, screenshots, etc...)
 
 # After Thoughts
@@ -49,4 +54,3 @@ Afterthoughts need to include recommendations on what is needed to secure the ta
 - Keep the system up to date on operating system and application patches.
 - Implement complex password usage with the requirement to change the passwords on a regular basis.
 - Implement endpoint protection for monitoring of system activities along with logging these activities to a central system.
-
