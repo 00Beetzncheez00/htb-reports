@@ -62,7 +62,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 | 445 tcp | microsoft-ds |
 | 3632 tcp | distccd |
 
-1. The target is running a Linux Operating. This was gathered from the HTB information listed in the control panel. Remember enumeration (Passive or Active) can come from all sources for your target.
+1. The target is running a Linux operating system. This was gathered from the HTB information listed in the control panel. Remember enumeration (Passive or Active) can come from all sources for your target.
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/lame-3.png)
 
@@ -95,7 +95,7 @@ And finally, any afterthoughts on the target, what can possibly be done to secur
 
 **NOTE:** I would be running more enumeration activities on the target such as taking a deeper dive and trying to gather more information. See what is on it. See what it is connected to. See what services are running. Then I can make further recommendations on what needs to be done on the target.
 
-7. Knowing that the target is running an older version of Samba with multiple exploits available. After doing some more research it another MSF exploit was located and run. As you can see this exploit netted ROOT access to the system. The above screenshots show the path taken to execute the MSF exploit, update the command shell to a meterpreter shell, interact with the shell, and show further objective evidence that ROOT access has been obtained on the target.
+7. Knowing that the target is running an older version of Samba with multiple exploits available. After doing some more research it was discovered that another MSF exploit was located and this was run against the system. As you can see this exploit netted ROOT access to the system. The above screenshots show the path taken to execute the MSF exploit, update the command shell to a meterpreter shell, interact with the shell, and show further objective evidence that ROOT access has been obtained on the target.
 
 ![](https://github.com/00Beetzncheez00/images/blob/main/lame-10.png)
 ![](https://github.com/00Beetzncheez00/images/blob/main/lame-11.png)
